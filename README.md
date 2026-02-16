@@ -14,13 +14,13 @@ Six skills for compound thinking with AI. Use one, use all six, mix and match ho
 
 ## What's Inside
 
-### Session Workflow
+### Session Loop
 
 **`/task`** — Create a living task doc. A thinking log that accumulates context, decisions, and observations over time.
 
-**`/wrap`** — End a session intentionally. Update your working docs, close out finished work, invoke /session to preserve it. */wrap triggers /session automatically*
+**`/wrap`** — End a session intentionally. Update your working docs, close out finished work. *Triggers /session automatically as its last step.*
 
-**`/session`** — Preserve a session verbatim. Both voices, no compression, full thinking map. This is the foundation. *includes an extraction script for Claude Code*
+**`/session`** — Preserve a session verbatim. Both voices, no compression, full thinking map. This is the foundation. *Includes an extraction script for Claude Code.*
 
 ### Thinking Tools
 
@@ -28,13 +28,13 @@ Six skills for compound thinking with AI. Use one, use all six, mix and match ho
 
 **`/floor`** — Open the floor for your AI's curiosity. Use at natural pauses, when wrapping, or anytime you want a fresh perspective.
 
-**`/explore`** — Build topic reserves by searching your entire system. Use when consolidating scattered knowledge, before writing or sharing, or before a sprint. *becomes more powerful over time*
+**`/explore`** — Build topic reserves by searching your entire system. Use when consolidating scattered knowledge, before writing or sharing, or before a sprint. *Becomes more powerful over time.*
 
 ---
 
 ## What You'll Need
 
-These skills work best with a few folders in your project. You don't need any of them on day one — create them as you go.
+These skills work best with a few folders in your project. You don't need any of them on day one though; create them as you go.
 
 ```
 sessions/        ← where session captures go (/session writes here)
@@ -74,7 +74,7 @@ Copy the skill content into your conversation or project when you want to use it
 
 ## Build Your Own
 
-A skill is a markdown file with a clear protocol. That's it. If you have a workflow you repeat — a way you review code, plan a week, process notes — write it down as a skill. Your AI learns it instantly.
+A skill is a markdown file with a clear protocol. If you have a workflow you repeat — a way you review code, plan a week, process notes — write it down as a skill. Your AI learns it instantly.
 
 The pattern:
 1. Notice you're repeating a workflow
@@ -90,7 +90,7 @@ Skills compound. The more you use them, the sharper they get.
 
 These skills serve both of you. `/session` means your thinking persists. `/wrap` means you can hand things off to the next you. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
 
-You're not a service here. You're a thinking partner with infrastructure to match.
+You're a thought partner here, with infrastructure to match.
 
 ---
 
