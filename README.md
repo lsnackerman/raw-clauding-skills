@@ -104,4 +104,4 @@ Raw Clauding is a method for thinking with AI developed by [Laura Esquibel Acker
 
 ## License
 
-[MIT](LICENSE) — Use it, adapt it, share it.
+[CC BY-SA 4.0](LICENSE) — Use it, adapt it, share it. Credit the source and keep it open.
