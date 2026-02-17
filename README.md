@@ -6,9 +6,9 @@
 
 ## What This Is
 
-Six skills for compound thinking with AI. Use one, use all six, mix and match however you want. Each skill is a folder you can drop into chat threads or invoke by name.
+Six skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use all six, mix and match however you want. All six together create a full thinking lifecycle.
 
-**If you only use one**, use `/session` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/session` as its last step. Everything else expands from there. All six together create a full thinking lifecycle.
+**If you only use one**, use `/session` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/session` as its last step. Everything else expands from there.
 
 ---
 
