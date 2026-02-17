@@ -43,7 +43,7 @@ tasks/           ← where task docs go (/task creates here)
 BACKLOG.md       ← shared scratchpad (/wrap writes a handoff here)
 ```
 
-That's it. Plain folders and markdown files. The skills reference these locations — if you organize differently, just adjust the paths in the skill files to match your setup.
+And if you organize differently, just adjust the paths in the skill files to match your setup.
 
 ---
 
