@@ -20,7 +20,7 @@ Seven skills for compound thinking with AI. Each skill is a folder you can drop 
 
 **`/wrap`** — End a session intentionally. Update your working docs, close out finished work. *Triggers /session automatically as its last step.*
 
-**`/pickup`** — Pick up where you left off. Load context from task docs and session transcripts, synthesize, align before diving in.
+**`/pickup`** — Pick up where you left off. Load context from task docs and session transcripts, synthesize, align before diving in. *Becomes more powerful over time.*
 
 **`/task`** — Create a living task doc. A thinking log that accumulates context, decisions, and observations over time.
 
