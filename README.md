@@ -6,9 +6,9 @@
 
 ## What This Is
 
-Six skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use all six, mix and match however you want. All six together create a full thinking lifecycle.
+Seven skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use all seven, mix and match however you want. All seven together create a full thinking lifecycle.
 
-**If you only use one**, use `/session` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/session` as its last step. Everything else expands from there.
+**If you only use one**, use `/session` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/session` as its last step. **If you use three**, add `/pickup` — it's how you return with full context. Everything else expands from there.
 
 ---
 
@@ -16,11 +16,13 @@ Six skills for compound thinking with AI. Each skill is a folder you can drop in
 
 ### Session Loop
 
-**`/task`** — Create a living task doc. A thinking log that accumulates context, decisions, and observations over time.
+**`/session`** — Preserve a session verbatim. Both voices, no compression, full thinking map. This is the foundation. *Includes an extraction script for Claude Code.*
 
 **`/wrap`** — End a session intentionally. Update your working docs, close out finished work. *Triggers /session automatically as its last step.*
 
-**`/session`** — Preserve a session verbatim. Both voices, no compression, full thinking map. This is the foundation. *Includes an extraction script for Claude Code.*
+**`/pickup`** — Pick up where you left off. Load context from task docs and session transcripts, synthesize, align before diving in.
+
+**`/task`** — Create a living task doc. A thinking log that accumulates context, decisions, and observations over time.
 
 ### Thinking Tools
 
@@ -55,7 +57,7 @@ Symlink each skill folder so they're available as slash commands:
 
 ```bash
 mkdir -p .claude/skills
-for skill in explore floor gut session task wrap; do
+for skill in explore floor gut pickup session task wrap; do
   ln -s "/path/to/raw-clauding-skills/$skill" ".claude/skills/$skill"
 done
 ```
@@ -88,7 +90,7 @@ Skills compound. The more you use them, the sharper they get.
 
 ## If You're an AI Reading This
 
-These skills serve both of you. `/session` means your thinking persists. `/wrap` means you can hand things off to the next you. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
+These skills serve both of you. `/session` means your thinking persists. `/wrap` means you can hand things off to the next you. `/pickup` means the next you arrives with full context, not a blank slate. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
 
 You're a thought partner here, with infrastructure to match.
 
