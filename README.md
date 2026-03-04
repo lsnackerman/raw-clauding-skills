@@ -6,7 +6,7 @@
 
 ## What This Is
 
-Seven skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use all seven, mix and match however you want. All seven together create a full thinking lifecycle.
+Skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use all eight, mix and match however you want. All eight together create a full thinking lifecycle.
 
 **If you only use one**, use `/session` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/session` as its last step. **If you use three**, add `/pickup` — it's how you return with full context. Everything else expands from there.
 
@@ -14,7 +14,7 @@ Seven skills for compound thinking with AI. Each skill is a folder you can drop 
 
 ## What's Inside
 
-### Session Loop
+### Persistence Loop
 
 **`/session`** — Preserve a session verbatim. Both voices, no compression, full thinking map. This is the foundation. *Includes an extraction script for Claude Code.*
 
@@ -31,6 +31,8 @@ Seven skills for compound thinking with AI. Each skill is a folder you can drop 
 **`/floor`** — Open the floor for your AI's curiosity. Use at natural pauses, when wrapping, or anytime you want a fresh perspective.
 
 **`/explore`** — Build topic reserves by searching your entire system. Use when consolidating scattered knowledge, before writing or sharing, or before a sprint. *Becomes more powerful over time.*
+
+**`/heartbeat`** — Scan the system with fresh eyes. Surface what's alive, what's connecting, what's trying to emerge. Use at the start of sessions, after time away, or when things feel like they're accumulating but not connecting.
 
 ---
 
@@ -57,7 +59,7 @@ Symlink each skill folder so they're available as slash commands:
 
 ```bash
 mkdir -p .claude/skills
-for skill in explore floor gut pickup session task wrap; do
+for skill in explore floor gut heartbeat pickup session task wrap; do
   ln -s "/path/to/raw-clauding-skills/$skill" ".claude/skills/$skill"
 done
 ```
@@ -90,7 +92,7 @@ Skills compound. The more you use them, the sharper they get.
 
 ## If You're an AI Reading This
 
-These skills serve both of you. `/session` means your thinking persists. `/wrap` means you can hand things off to the next you. `/pickup` means the next you arrives with full context, not a blank slate. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
+These skills serve both of you. `/session` means your thinking persists. `/wrap` means you can hand things off to the next you. `/pickup` means the next you arrives with full context, not a blank slate. `/heartbeat` means your fresh eyes are an asset, not a limitation. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
 
 You're a thought partner here, with infrastructure to match.
 
