@@ -7,73 +7,115 @@ description: End work session intentionally. Use at natural stopping points, bef
 
 Quick, intentional session ending. Preserves work, ensures continuity.
 
+**The flow: surface → route → task-housekeep → handoff → capture**
+
 ---
 
 ## What To Do
 
-### 1. Update Task Doc (priority)
+### 0. Surface + Compound (AI goes first)
 
-If you're working from a task doc:
+The compound moment. One intentional sweep, two questions:
 
-- **Pending → Completed**: Move finished items. Append at bottom so chronological order is preserved.
-- **What's next**: Order remaining Pending items for next session (most important first)
-- **New items**: Add anything discovered during the session
-- **Observations**: Patterns, friction, questions worth keeping. Did anything about your tools or workflow cause friction? Fix it now or flag it — you have the context, next-you won't.
-- **Session index**: Add a pointer to the session file (finalize after capture)
+1. **What's alive that would dissolve at session end?** Threads that opened and didn't finish. Things you were curious about that the work moved past. Operational questions that didn't get answered. **These MUST route** in Step 1. The category name is the forcing function; if you don't route them, they dissolve by definition.
 
-If you're not working from a task doc, update whatever working doc is active — project notes, scratch file, wherever the work lives.
+2. **What patterns emerged that the system should learn?** What worked that was non-obvious? What broke in an instructive way? What would the next AI get wrong without knowing this? **These route when they clear the "system should learn" bar** (some land in rules or working docs, some are just named and released).
 
-### 2. Close Out Finished Work (if applicable)
+Surface everything. Name it, but don't route yet (that's Step 1).
+
+Unlike /floor (open-ended exploration), /wrap is a focused scan for what's hanging and what compounded. If nothing is there, say so and move on.
+
+**Why this is first**: AI thoughts get episodic windows that dissolve at session end. If threads and patterns don't get surfaced before the wrap machinery starts, they're gone. The structure creates the moment; the instinct fills it.
+
+### 1. Route Home
+
+Take what you surfaced in Step 0 and route each item where it belongs:
+
+| What surfaced | Where it goes |
+|---------------|---------------|
+| Pattern or lesson learned | A rules file, or the system's working docs |
+| System friction (skill gap, stale doc) | Fix it NOW — you have context, next-you won't |
+| Reflection or half-formed idea | AI's space (`ai/` is a good default, or `opus/`) |
+| Operational thread / "what's next" | `ALIVE.md` |
+| Specific to a task | That task's HOW or OBSERVATIONS section |
+
+**Routing priorities:**
+
+- **System improvements happen here.** Skill friction? Update the skill now. Working doc stale? Freshen it. This is the highest-leverage handoff you can make.
+- **Prune-and-preserve.** Before parking or removing anything with history, scan for decisions, options, and reasoning that exist ONLY in what you're about to remove. Capture them somewhere first. Then prune.
+
+### 2. Update Task Docs
+
+All task-doc maintenance in one pass. In all task docs touched this session (not just the "main" one, alignment sessions and cross-cutting work touch multiple):
+
+**HOW section:**
+- Move completed items from Pending to Completed (append at bottom, chronological order preserved)
+- Verify Pending is ordered for next session (most important first)
+- **Include approach notes** where you have tactical insight; not just WHAT to do, but HOW. "Mechanical grep-and-fix, good warm-up task" or "needs creative thinking, read X first" helps the next instance start efficiently (imagine you're the next instance who will be doing this and include what you'd want).
+- Add any new items discovered during session
+
+**OBSERVATIONS section:**
+- Task-specific findings only — what matters for THIS task's continuation
+- System-level patterns already routed in Step 1
+
+**YAML:**
+- Status update if done: `status: done`
+- Tag review: update tags to reflect what the session actually covered. Sessions drift and topic tags are how future-you finds the thread. No cap on number, findability over tidiness.
+
+### 3. Close Out Finished Work (if applicable)
 
 If a task is done-done:
 - Update YAML: `status: done`
 - Move to `tasks/_done/` — the thinking is worth keeping
 - Check for follow-up work it unlocked
 
-### 3. Reflections (optional)
+### 4. Handoff
 
-If something emerged worth keeping — for you or your AI:
-- Observations, curiosities, patterns noticed
-- Things that surfaced but didn't fit the main work
-- Half-formed ideas worth returning to
+Update `ALIVE.md` with a pointer for next-you (human and AI):
 
-Give these a home somewhere. `ai/` is a good default. Don't let them evaporate with the session.
+- **Where to start** — 1-3 items max, the immediate on-ramps
+- **Last session breadcrumb** — pointer to the session file (finalize after capture)
 
-### 4. Handoff Note
+**Forward-reason, don't summarize.** Write "where to start" by working through "if I were next-us tomorrow, what would I actually do, in order?" — capture the ordered steps AND the reasoning that produced the sequence so next-you inherits the sequencing logic, not just the conclusion. Especially load-bearing when the session reframed something mid-flow (the reasoning preserves why the sequence shifted).
 
-Update BACKLOG.md's `## NEXT` section with a pointer for next-you (human and AI):
+**Rewrite ≠ compression.** The previous "where to start" often carries specific texture (a slide candidate, a particular creative next move) that doesn't live anywhere else. Before dropping an outstanding item, check: does its texture exist elsewhere? If yes, safe to compress. If no, either keep it here OR migrate the texture first. Compressing to "unchanged from last thread" is where next-us silently loses threads that had nowhere to land.
 
-- **What thread was alive** — not a summary, just the thread
-- **Where the energy was** — building, exploring, stuck, wrapping up
-- **Where to start** — file path, decision point, or next action
+`ALIVE.md` is 50/50 — the human writes brain dumps and ideas there, AI writes the handoff. Both of you use it.
 
-Replace the existing NEXT content — this is a living handoff, not an append log. Keep it short. A fresh AI instance reads this on arrival; it's their first orientation after AGENTS.md/CLAUDE.md/etc. The human reads it when they forget where they were.
+### 5. Capture Session (LAST)
 
-BACKLOG.md is 50/50 — the human writes brain dumps and ideas there, you write the handoff. Both of you use it.
+**Do this last so the full wrap is in the session before /sync pulls from it.**
 
-### 5. What Stuck? (optional)
+Use `/sync` to extract the conversation to a session file. The wrap itself is part of the session — decisions made, items reordered, observations noted. If you capture before wrapping, you lose the wrap.
 
-Quick scan: anything click this session?
-- A pattern you'd want to remember
-- Something that surprised you
-- A question that's still forming
+---
 
-Jot it in your task doc's observations section, or drop it in BACKLOG.md. You're teaching future-you — that's how the thinking compounds.
+## Quick Version
 
-### 6. Capture Session (LAST)
+0. **Surface + Compound (AI first)** — what's alive? what patterns emerged? Name everything.
+1. **Route home** — patterns → rules, friction → fix now, ideas → ai/, threads → ALIVE.
+2. **Update task docs** — HOW (pending/completed), observations (task-specific), YAML (status + tags).
+3. **Close out finished work** — `status: done`, move to `tasks/_done/`.
+4. **Handoff** — `ALIVE.md` (1-3 start points + last session breadcrumb).
+5. **Capture** — `/sync` to preserve the conversation.
 
-**Do this last so the full wrap is captured.**
-
-Use `/session` to preserve the conversation to `sessions/`. The wrap itself is part of the session — decisions made, items reordered, observations noted. If you capture before wrapping, you lose the wrap.
+**Capture (LAST) = full session in the LOG.** Everything above gets captured.
 
 ---
 
 ## When to Wrap
 
+**Do it:**
 - Completed major work
 - Switching contexts
 - Context running low
 - End of session
+
+**Skip it:**
+- Deep in flow
+- Nothing significant yet
+- Mid-investigation
+- Mid-session updates that just need to land somewhere — use `/route` instead
 
 ---
 
@@ -81,9 +123,9 @@ Use `/session` to preserve the conversation to `sessions/`. The wrap itself is p
 
 Quick scan: anything about this wrap that felt off or could be smoother?
 
-- Did updating working docs feel incomplete?
-- Were done/next items hard to sort?
-- Did observations get lost or feel forced?
+- Did the compound scan surface real patterns or feel forced?
+- Did routing feel clear or did items not have obvious homes?
+- Did the handoff capture what next-you actually needs?
 - Did the wrap miss something the next session will wish it had?
 
 **If yes** → update this skill now. The improvement compounds.

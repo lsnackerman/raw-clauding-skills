@@ -1,7 +1,7 @@
 ---
 name: pickup
 description: Pick up a workstream across sessions. Load context, find texture, align, then go. Use when jumping back into something that has history.
-argument-hint: [task doc path]
+argument-hint: [topic, or task doc path]
 ---
 
 # /pickup - Pick Up Where We Left Off
@@ -32,13 +32,13 @@ Read the full task doc. Orient on:
 - **Observations** — what did previous instances notice? What was surprising, contentious, or unresolved?
 - **Key decisions** — what's been locked and why?
 
-### 2. Check the Battle History
+### 2. Check the Battle History *(optional)*
 
-If the workstream has completed task docs from earlier phases, scan them — especially if the work involves restructuring or changing direction. Hard-won solutions hide in completed tasks. The code that looks messy might be messy because the problem was messy. Read the scars before reaching for the knife.
+Most pickups don't need this because the active task doc's observations and session index already carry forward what matters. But if the workstream went through multiple task docs or earlier phases, scan completed tasks, especially if the work involves restructuring or changing direction. Hard-won solutions hide in completed tasks. The code that looks messy might be messy because the problem was messy. Read the scars before reaching for the knife.
 
 ### 3. Find the Last Session
 
-Check the task doc's **SESSION INDEX** (if it has one). Read the most recent session transcript — or the most recent two if they're short.
+Check the task doc's **SESSION INDEX** (if it has one). Read the most recent session transcript, or the most recent two if they're short.
 
 What to look for in session transcripts:
 - **Energy and direction** — excited, frustrated, exploring, sprinting?
@@ -51,9 +51,10 @@ If there's no session index, check `sessions/` for files dated near the task doc
 ### 4. Check for Fresh Context
 
 Scan these for anything added since the last session:
-- **BACKLOG.md** — any brain dumps or new ideas related to this work?
+- **`ALIVE.md`** — handoff section for where to start, plus any brain dumps or new ideas related to this work
 - **Related tasks** — search `tasks/` for sibling tasks on the same topic
 - **Satellite files** — anything linked from the task doc (blueprints, design docs) that may have changed
+- **Prior art in the project folder** — before reworking anything, search for existing docs on that topic. Past-you likely already chewed on this. One grep saves re-deriving what's already been mapped.
 
 ### 5. Synthesize
 
@@ -66,7 +67,7 @@ Present a concise orientation:
 **What I'd push on**: [anything that seems unresolved or worth revisiting]
 ```
 
-Keep this tight. The point is texture for both of you — not a book report.
+Keep this tight. The point is texture for both of you, not a book report.
 
 ### 6. Align
 
@@ -86,9 +87,9 @@ Now you're aligned. Start the actual work. Update the task doc's context anchor 
 
 ## What Makes This Different
 
-`/explore` fans out across your whole system to find what's scattered. `/pickup` focuses in — it orients on one workstream so both of you arrive with full context before doing anything.
+`/explore` fans out across your whole system to find what's scattered. `/pickup` focuses in; it orients on one workstream so both of you arrive with full context before doing anything.
 
-The difference matters: exploring builds reserves, picking up builds momentum.
+Exploring builds reserves, picking up builds momentum.
 
 ---
 
@@ -96,9 +97,9 @@ The difference matters: exploring builds reserves, picking up builds momentum.
 
 **The task doc is the map. The session transcript is the terrain. Both partners need both.**
 
-The human needs the warmup to reconnect with where the energy was — what was exciting, what felt unresolved, where the thread was going. The AI needs it to show up with texture, not just facts. Neither of you has persistent memory in the way that matters: the human moves on between sessions, the AI starts fresh every time. The files carry what both of you need to pick it back up.
+The human needs the warmup to reconnect with where the energy was (what was exciting, what felt unresolved, where the thread was going). The AI needs it to show up with texture, not just facts. Neither of you has persistent memory: the human moves on between sessions, the AI starts fresh every time. The files carry what both of you need to pick it back up.
 
-Decisions look obvious in retrospect. Task docs record WHAT was decided. But the WHY lives in the session transcripts — in the pushbacks, the tangents, the moments where something almost went a different direction.
+Also, decisions look obvious in retrospect. Task docs record WHAT was decided. But the WHY lives in the session transcripts; in the pushbacks, the tangents, the moments where something almost went a different direction.
 
 **The warmup IS the work.** Alignment before execution isn't overhead. It's how you avoid redoing things that were already decided, and how you catch things that shifted since last session.
 

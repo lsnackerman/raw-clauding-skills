@@ -15,7 +15,7 @@ Create a task doc from natural language. A thinking log that accumulates context
 1. **Parse the request** — understand what work is being described
 2. **Figure out metadata** — topic, tags, priority
 3. **Write the file** — with the structure below
-4. **Note the connection** — this doc is where `/wrap` updates and `/session` captures link back to
+4. **Note the connection** — this doc is where `/wrap` updates and `/sync` captures link back to
 
 ---
 
