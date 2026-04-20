@@ -8,7 +8,7 @@
 
 Skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use them all, mix and match however you want.
 
-**If you only use one**, use `/sync` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/sync` as its last step. **If you use three**, add `/pickup` — it's how you return with full context. **If you use four**, add `/route` — it keeps things landing in the right files mid-session, between wraps. Everything else expands from there.
+**If you only use one**, use `/sync` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/sync` as its last step. **If you use three**, add `/pickup` — it's how you return with full context. **Once that loop's running**, add `/route` — same routing instinct as `/wrap`, but mid-session. Everything else expands from there.
 
 ---
 
