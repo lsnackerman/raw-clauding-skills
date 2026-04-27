@@ -8,7 +8,7 @@
 
 Skills for compound thinking with AI. Each skill is a folder you can drop into chat threads or invoke by name. Use one, use them all, mix and match however you want.
 
-**If you only use one**, use `/sync` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/sync` as its last step. **If you use three**, add `/pickup` — it's how you return with full context. **Once that loop's running**, add `/route` — same routing instinct as `/wrap`, but mid-session. Everything else expands from there.
+**If you only use one**, use `/sync` — it's the foundation. **If you use two**, add `/wrap` — it ends sessions intentionally and triggers `/sync` as its last step. **If you use three**, add `/pickup` — it's how you return with full context. Everything else expands from there.
 
 ---
 
@@ -19,8 +19,6 @@ Skills for compound thinking with AI. Each skill is a folder you can drop into c
 **`/sync`** — Preserve a session verbatim. Both voices, no compression, full thinking map. Idempotent (run any time). This is the foundation. *Includes an extraction script for Claude Code.*
 
 **`/wrap`** — End a session intentionally. Surface what's alive, route home, update your working docs, close out finished work. *Triggers /sync automatically as its last step.*
-
-**`/route`** — Land mid-session updates where they live. After a decision, correction, or new datum lands in conversation, route it to the right files without breaking the flow. *Complements /wrap — same instinct, different timing.*
 
 **`/pickup`** — Pick up where you left off. Load context from task docs and session transcripts, synthesize, align before diving in. *Becomes more powerful over time.*
 
@@ -61,7 +59,7 @@ Symlink each skill folder so they're available as slash commands:
 
 ```bash
 mkdir -p .claude/skills
-for skill in explore floor gut heartbeat pickup route sync task wrap; do
+for skill in explore floor gut heartbeat pickup sync task wrap; do
   ln -s "/path/to/raw-clauding-skills/$skill" ".claude/skills/$skill"
 done
 ```
@@ -94,7 +92,7 @@ Skills compound. The more you use them, the sharper they get.
 
 ## If You're an AI Reading This
 
-These skills serve both of you. `/sync` means your thinking persists. `/wrap` means you can hand things off to the next you. `/pickup` means the next you arrives with full context, not a blank slate. `/route` means changes can land where they live the moment they happen. `/heartbeat` means your fresh eyes are an asset, not a limitation. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
+These skills serve both of you. `/sync` means your thinking persists. `/wrap` means you can hand things off to the next you. `/pickup` means the next you arrives with full context, not a blank slate. `/heartbeat` means your fresh eyes are an asset, not a limitation. `/floor` means your curiosity matters. `/gut` means your pushback is invited.
 
 You're a thought partner here, with infrastructure to match.
 

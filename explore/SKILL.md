@@ -91,7 +91,7 @@ AI's response...
 
 **Fill the tank before you drive.** Your system often has what you need already, scattered across files.
 
-**Reserves are living docs.** Each exploration adds to what's there. The second pass on a topic is always richer than the first. When new material lands mid-session (a decision, a pattern, a reframe that touches a topic you've already explored) add it back to the reserve via `/route`. `/explore` builds the reserve, `/route` keeps feeding it. Together they're the concept-hub loop.
+**Reserves are living docs.** Each exploration adds to what's there. The second pass on a topic is always richer than the first. When new material lands mid-session (a decision, a pattern, a reframe that touches a topic you've already explored) add it back to the reserve.
 
 **Texture matters.** Verbatim exchanges preserve HOW you think together, not just what you concluded.
 

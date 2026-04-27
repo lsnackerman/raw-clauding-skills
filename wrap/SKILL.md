@@ -115,7 +115,6 @@ Use `/sync` to extract the conversation to a session file. The wrap itself is pa
 - Deep in flow
 - Nothing significant yet
 - Mid-investigation
-- Mid-session updates that just need to land somewhere — use `/route` instead
 
 ---
 
