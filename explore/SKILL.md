@@ -53,7 +53,7 @@ These aren't gated by system age. New systems benefit from discovery mode (find 
    - Focus on material NOT in the existing reserve. New sessions, new docs, anything added since the last run. If you find something already captured, skip it. If you find something that extends or contradicts what's captured, include it.
 6. **Output** — create the `reserves/` folder if it doesn't exist.
    - **Topic mode** → `reserves/{topic}.md`. Create if new; expand if existing (reserves are append-friendly, dedup during synthesis).
-   - **Discovery mode** → `reserves/discovery-{date}.md`, a fresh file every time (see Discovery Mode below).
+   - **Discovery mode** → `reserves/discovery-{date}.md`, a fresh file every time (see Discovery mode below).
 
 ---
 

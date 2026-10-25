@@ -36,6 +36,10 @@ Skills for compound thinking with AI. Each skill is a folder you can drop into c
 
 **`/pulse`** — Step back and take the system's pulse. Scan across everything for what's alive, what's gone quiet, and what's trying to emerge. Use at the start of sessions, after time away, or when things feel like they're accumulating but not connecting.
 
+### In its own repo
+
+**`/clip`** — Pull a short captioned clip out of something already recorded. It runs a script and needs a few tools, so it lives in its own repo: [raw-clauding-clip](https://github.com/lsnackerman/raw-clauding-clip).
+
 ---
 
 ## What you'll need
