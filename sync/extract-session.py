@@ -239,6 +239,17 @@ def extract_messages(session_file):
     return messages
 
 
+# Your messages, counted two ways: `sent` by the app's own marker (origin.kind
+# 'human'), `kept` by what actually reached the LOG. The marker is read apart from
+# the text filter, so a filter that drops your words shows as a mismatch instead of
+# a clean "Refreshed LOG".
+HUMAN = {'sent': 0, 'kept': 0}
+
+
+def _is_human(origin):
+    return isinstance(origin, dict) and origin.get('kind') == 'human'
+
+
 def _extract_claude_code(data, messages):
     """Extract from Claude Code JSONL format (uses 'type' field)."""
     # User messages
@@ -249,19 +260,49 @@ def _extract_claude_code(data, messages):
             text_parts = []
             for c in content:
                 if isinstance(c, dict):
-                    text_parts.append(c.get('text', ''))
+                    text_parts.append('[image]' if c.get('type') == 'image' else c.get('text', ''))
                 else:
                     text_parts.append(str(c))
             text_content = ' '.join(text_parts)
         else:
             text_content = content
 
-        skip_markers = ['<command-name>', '<local-command', '<system-reminder>']
-        if any(marker in text_content for marker in skip_markers):
+        # Slash commands and their output: skip the whole entry.
+        if '<command-name>' in text_content or '<local-command' in text_content:
             return
+        human = _is_human(data.get('origin'))
+        if human:
+            HUMAN['sent'] += 1
+        # Harness notes: strip them and keep whatever the person wrote beside them.
+        # The app can prepend a <system-reminder> block to a person's turn, so skipping
+        # any entry that CONTAINS one dropped their words too.
+        # Same for the app's own event messages.
+        # (Not <task-notification>: that's an agent's result. Keep it.)
+        for tag in ('system-reminder', 'side-sessions-event', 'ci-monitor-event'):
+            text_content = re.sub(rf'<{tag}>.*?</{tag}>', '', text_content, flags=re.DOTALL)
+            if f'<{tag}>' in text_content:  # unclosed: nothing after it is theirs
+                text_content = text_content.split(f'<{tag}>', 1)[0]
 
         if text_content.strip():
             messages.append(('user', text_content.strip()))
+            if human:
+                HUMAN['kept'] += 1
+
+    # Messages sent while Claude is mid-turn. They aren't user entries: the app stores
+    # them as a `queued_command` attachment where they arrived. Only origin 'human' is
+    # the person; agent completions and other sessions' messages ride the same queue.
+    elif data.get('type') == 'attachment':
+        att = data.get('attachment') or {}
+        if att.get('type') != 'queued_command' or not _is_human(att.get('origin')):
+            return
+        HUMAN['sent'] += 1
+        prompt = att.get('prompt', '')
+        if isinstance(prompt, list):
+            prompt = ' '.join('[image]' if b.get('type') == 'image' else b.get('text', '')
+                              for b in prompt if isinstance(b, dict))
+        if isinstance(prompt, str) and prompt.strip():
+            messages.append(('user', '*(sent mid-turn)* ' + prompt.strip()))
+            HUMAN['kept'] += 1
 
     # Assistant messages
     elif data.get('type') == 'assistant':
@@ -483,6 +524,19 @@ def main():
             print(f"Wrote to: {output_file}", file=sys.stderr)
     else:
         print(formatted)
+    report_human()
+
+
+def report_human():
+    """Last line of output, so it's the line you see. Silent when the transcript
+    carries no origin markers (older Claude Code, Cursor): no count beats a wrong one."""
+    sent, kept = HUMAN['sent'], HUMAN['kept']
+    if not sent:
+        return
+    print(f"Your messages: {kept} of {sent} in the LOG", file=sys.stderr)
+    if kept < sent:
+        print(f"⚠️  {sent - kept} of your messages are NOT in the LOG. The extractor dropped "
+              f"something it shouldn't have; check before trusting this capture.", file=sys.stderr)
 
 
 if __name__ == '__main__':
